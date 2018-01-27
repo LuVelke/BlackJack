@@ -17,6 +17,8 @@ public class Kartenhand {
 		int groesse = Kartenstapel.Kartenstapel.size();
 		System.out.println("Somit ist der aktuelle Wert auf der Hand: "+d);
 		System.out.println("Resltiche Karten: "+groesse);
+		System.out.println(".... du sexy Hexy");
+		
 	}
 
 }
