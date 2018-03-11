@@ -6,7 +6,7 @@ public class Dealer {
 	public static void main(String[] args) {
 
 		Kartenstapel Deck = new Kartenstapel();
-		Kartenhand Juergen = new Kartenhand();
+		Kartenhand KingKieran = new Kartenhand();
 		Dealer Geber = new Dealer();
 		
 		Deck.KartenErstellen();
@@ -19,8 +19,8 @@ public class Dealer {
 		System.out.println("Mit folgendem Wert: " + Geber.Dealer_GibWert());
 
 		System.out.println("Der Spieler hat folgende karten: ");
-		Juergen.Spieler_GibKarten();
-		System.out.println("Mit folgendem Wert: " + Juergen.Spieler_GibWert());
+		KingKieran.Spieler_GibKarten();
+		System.out.println("Mit folgendem Wert: " + KingKieran.Spieler_GibWert());
 
 		Deck.GrößeKartenstapel();
 
