@@ -18,13 +18,13 @@ public class Dealer {
 
 		System.out.println("Der Spieler hat folgende karten: ");
 		Juergen.Spieler_GibKarten();
-		System.out.println("Mit folgendem Wert: " +Juergen.Spieler_GibWert());
-		
+		System.out.println("Mit folgendem Wert: " + Juergen.Spieler_GibWert());
+
 		Deck.GrößeKartenstapel();
 
 		Geber.DealerWartet(3000);
 
-		System.out.println("Reicht jetzt!!");
+		System.out.println("genug gewartet...");
 
 	}
 
@@ -35,6 +35,7 @@ public class Dealer {
 			System.out.println(a.Kartenfarbe + " " + a.Kartenname);
 		}
 	}
+
 	public int Dealer_GibWert() {
 		int Wert = 0;
 		for (int i = 1; i <= Dealer.Hand.size(); i++) {

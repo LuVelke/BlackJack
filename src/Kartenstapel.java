@@ -3,8 +3,19 @@ import java.util.Collections;
 
 public class Kartenstapel {
 	public static ArrayList<Spielkarte> Deck = new ArrayList<Spielkarte>(52);
-
+	// public static ArrayList<Spielkarte> Deck2 = new ArrayList<Spielkarte>(52);
+	// --> ein versuch... noch nicht löschen bitte
 	{
+		/*
+		 * String [] Farbe= new String[]{"Karo","Herz","Pik","Kreuz"}; String [] Wert=
+		 * new String[]
+		 * {"Zwei","Drei","Vier","Fünf","Sechs","Sieben","Acht","Neun","Zehn","Bube",
+		 * "Dame","König","Ass"};
+		 * 
+		 * for (String farb:Farbe) { for (String Werti:Wert) { Spielkarte a=new
+		 * Spielkarte(1,Werti,farb); Deck2.add(a); } }
+		 */
+
 		// Karokarten erschaffen
 		Spielkarte KaroZwei = new Spielkarte(2, "Karo", "Zwei");
 		Spielkarte KaroDrei = new Spielkarte(3, "Karo", "Drei");
@@ -142,6 +153,10 @@ public class Kartenstapel {
 	}
 
 	public static void main(String[] args) {
+		/*
+		 * for(int i=0;i<=10;i++) { Spielkarte b=Deck2.get(i);
+		 * System.out.println(b.Kartenfarbe + " " + b.Kartenname); }
+		 */
 
 	}
 
