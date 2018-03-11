@@ -8,7 +8,9 @@ public class Dealer {
 		Kartenstapel Deck = new Kartenstapel();
 		Kartenhand Juergen = new Kartenhand();
 		Dealer Geber = new Dealer();
-
+		
+		Deck.KartenErstellen();
+		
 		Deck.SpielerZieht();
 		Deck.DealerZieht();
 
