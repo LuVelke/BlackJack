@@ -1,24 +1,29 @@
-import javax.swing.JOptionPane;
+import java.util.ArrayList;
+
+//import javax.swing.JOptionPane;
 
 public class Kartenhand {
+	public static ArrayList<Spielkarte> Hand = new ArrayList<Spielkarte>();
+
+	public void Spieler_GibKarten() {
+		for (int i = 1; i <= Kartenhand.Hand.size(); i++) {
+			Spielkarte a = Kartenhand.Hand.get(i - 1);
+			System.out.println(a.Kartenfarbe + " " + a.Kartenname);
+
+		}
+	}
+
+	public int Spieler_GibWert() {
+		int Wert = 0;
+		for (int i = 1; i <= Kartenhand.Hand.size(); i++) {
+			Spielkarte a = Kartenhand.Hand.get(i - 1);
+			Wert = a.Kartenwert;
+		}
+		return Wert;
+	}
 
 	public static void main(String[] args) {
-		
-		String a= JOptionPane.showInputDialog("Wie viele Karten?");
-		int b = Integer.valueOf(a);
-		int d=0;
-		for (int c=1; c<=b;c++)
-		{
-			Spielkarte Karte=Kartenstapel.Kartenstapel.get(Kartenstapel.Kartenstapel.size()-1);
-			d=d+Karte.Kartenwert;
-			Kartenstapel.Kartenstapel.remove(Karte);
-			System.out.println("Spieler zieht als "+c+". Karte: " + Karte.Kartenfarbe+" "+Karte.Kartenname);
-		}
-		int groesse = Kartenstapel.Kartenstapel.size();
-		System.out.println("Somit ist der aktuelle Wert auf der Hand: "+d);
-		System.out.println("Resltiche Karten: "+groesse);
-		System.out.println(".... du sexy Hexy");
-		
+
 	}
 
 }
