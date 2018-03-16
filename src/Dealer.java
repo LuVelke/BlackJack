@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Dealer {
 	public static ArrayList<Spielkarte> Hand = new ArrayList<Spielkarte>();
 
@@ -10,7 +12,7 @@ public class Dealer {
 		Dealer Geber = new Dealer();
 		
 		Deck.KartenErstellen();
-		
+		Deck.GrößeKartenstapel();
 		Deck.SpielerZieht();
 		Deck.DealerZieht();
 
@@ -24,9 +26,54 @@ public class Dealer {
 
 		Deck.GrößeKartenstapel();
 
-		Geber.DealerWartet(3000);
-
-		System.out.println("genug gewartet...");
+				
+		while (KingKieran.Spieler_GibWert()<=21) {
+			int frageNachKarte= JOptionPane.showConfirmDialog(null, "Soll eine weitere Karte gezogen werden?", "Zugabfrage", JOptionPane.YES_NO_CANCEL_OPTION);
+			if (frageNachKarte == 0) {
+				Deck.SpielerZieht();
+				KingKieran.Spieler_GibKarten();
+				System.out.println("Mit folgendem Wert: " + KingKieran.Spieler_GibWert());
+				System.out.println();
+			}
+			if(frageNachKarte == 1) {
+				break;
+			}
+			if(frageNachKarte == 2) {
+				System.exit(0);
+			}
+		}
+		
+		if (KingKieran.Spieler_GibWert() > 21) {
+			JOptionPane.showMessageDialog(null, "Du hast " + KingKieran.Spieler_GibWert() +  " Punkte und somit verloren");
+			System.exit(0);
+		}
+		else {
+			while (Geber.Dealer_GibWert()<=16) {
+				Deck.DealerZieht();
+				Geber.Dealer_GibKarten();
+				System.out.println();
+				}
+			if (Geber.Dealer_GibWert() > 21) {
+				JOptionPane.showMessageDialog(null, "Das Haus hat " + Geber.Dealer_GibWert() +  " Punkte und somit verloren");
+				System.exit(0);
+		}
+	
+		
+		System.out.println("Ergebnis:");
+		System.out.println("King Kieran hat " + KingKieran.Spieler_GibWert() + " Punkte");
+		System.out.println("Das Haus hat " + Geber.Dealer_GibWert() + " Punkte");
+		if (KingKieran.Spieler_GibWert()>Geber.Dealer_GibWert()) {
+			System.out.println("Somit hat King Kieran gewonnen");
+		}
+		else {
+			if(KingKieran.Spieler_GibWert()<Geber.Dealer_GibWert()) {
+				System.out.println("Somit hat das Haus gewonnen");
+			}
+			else {
+				System.out.println("Unentschieden -> Der Pot wird geteilt");
+			}
+		}
+		}
 
 	}
 
@@ -42,7 +89,7 @@ public class Dealer {
 		int Wert = 0;
 		for (int i = 1; i <= Dealer.Hand.size(); i++) {
 			Spielkarte a = Dealer.Hand.get(i - 1);
-			Wert = a.Kartenwert;
+			Wert =  Wert + a.Kartenwert;
 		}
 		return Wert;
 	}

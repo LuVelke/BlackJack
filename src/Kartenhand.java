@@ -17,7 +17,7 @@ public class Kartenhand {
 		int Wert = 0;
 		for (int i = 1; i <= Kartenhand.Hand.size(); i++) {
 			Spielkarte a = Kartenhand.Hand.get(i - 1);
-			Wert = a.Kartenwert;
+			Wert = Wert+  a.Kartenwert;
 		}
 		return Wert;
 	}
