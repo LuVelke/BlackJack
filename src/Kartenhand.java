@@ -5,12 +5,18 @@ import java.util.ArrayList;
 public class Kartenhand {
 	public static ArrayList<Spielkarte> Hand = new ArrayList<Spielkarte>();
 
-	public void Spieler_GibKarten() {
-		for (int i = 1; i <= Kartenhand.Hand.size(); i++) {
-			Spielkarte a = Kartenhand.Hand.get(i - 1);
-			System.out.println(a.Kartenfarbe + " " + a.Kartenname);
-
-		}
+		public String Spieler_GibKarten() {
+			String test;
+			StringBuffer Karten = new StringBuffer ("");
+			for (int i = 1; i <= Kartenhand.Hand.size(); i++) {
+				Spielkarte a = Kartenhand.Hand.get(i - 1);
+				
+				 Karten.append(a.Kartenfarbe + " " + a.Kartenname + ", ");
+				 
+			}
+			
+		test = Karten.toString();
+		return test;
 	}
 
 	public int Spieler_GibWert() {

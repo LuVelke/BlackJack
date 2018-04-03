@@ -12,28 +12,22 @@ public class Dealer {
 		Dealer Geber = new Dealer();
 		
 		Deck.KartenErstellen();
-		Deck.GrößeKartenstapel();
 		Deck.SpielerZieht();
 		Deck.DealerZieht();
+		
+		JOptionPane.showMessageDialog(null, "Der Dealer hat folgende Karten: " + Geber.Dealer_GibKarten() + "\n"+ "Mit folgendem Wert: " + Geber.Dealer_GibWert());
+		JOptionPane.showMessageDialog(null, "Der Spieler hat folgende Karten: " + KingKieran.Spieler_GibKarten() + "\n"+ "Mit folgendem Wert: " + KingKieran.Spieler_GibWert());
+System.out.println("Penis");
 
-		System.out.println("Der Dealer hat folgende karten: ");
-		Geber.Dealer_GibKarten();
-		System.out.println("Mit folgendem Wert: " + Geber.Dealer_GibWert());
-
-		System.out.println("Der Spieler hat folgende karten: ");
-		KingKieran.Spieler_GibKarten();
-		System.out.println("Mit folgendem Wert: " + KingKieran.Spieler_GibWert());
-
-		Deck.GrößeKartenstapel();
+		
 
 				
 		while (KingKieran.Spieler_GibWert()<=21) {
 			int frageNachKarte= JOptionPane.showConfirmDialog(null, "Soll eine weitere Karte gezogen werden?", "Zugabfrage", JOptionPane.YES_NO_CANCEL_OPTION);
 			if (frageNachKarte == 0) {
 				Deck.SpielerZieht();
-				KingKieran.Spieler_GibKarten();
-				System.out.println("Mit folgendem Wert: " + KingKieran.Spieler_GibWert());
-				System.out.println();
+				JOptionPane.showMessageDialog(null, "Der Spieler hat folgende Karten: " + KingKieran.Spieler_GibKarten() + "\n"+ "Mit folgendem Wert: " + KingKieran.Spieler_GibWert());
+				
 			}
 			if(frageNachKarte == 1) {
 				break;
@@ -50,8 +44,8 @@ public class Dealer {
 		else {
 			while (Geber.Dealer_GibWert()<=16) {
 				Deck.DealerZieht();
-				Geber.Dealer_GibKarten();
-				System.out.println();
+				JOptionPane.showMessageDialog(null, "Der Dealer hat folgende Karten: " + Geber.Dealer_GibKarten() + "\n"+ "Mit folgendem Wert: " + Geber.Dealer_GibWert());
+				
 				}
 			if (Geber.Dealer_GibWert() > 21) {
 				JOptionPane.showMessageDialog(null, "Das Haus hat " + Geber.Dealer_GibWert() +  " Punkte und somit verloren");
@@ -59,30 +53,35 @@ public class Dealer {
 		}
 	
 		
-		System.out.println("Ergebnis:");
-		System.out.println("King Kieran hat " + KingKieran.Spieler_GibWert() + " Punkte");
-		System.out.println("Das Haus hat " + Geber.Dealer_GibWert() + " Punkte");
+		JOptionPane.showMessageDialog(null, "Ergebnis: \n" + "King Kieran hat " + KingKieran.Spieler_GibWert() + " Punkte \n" + "Das Haus hat " + Geber.Dealer_GibWert() + " Punkte \n");
+
 		if (KingKieran.Spieler_GibWert()>Geber.Dealer_GibWert()) {
-			System.out.println("Somit hat King Kieran gewonnen");
+			JOptionPane.showMessageDialog(null, "Somit hat King Kieran gewonnen");
 		}
 		else {
 			if(KingKieran.Spieler_GibWert()<Geber.Dealer_GibWert()) {
-				System.out.println("Somit hat das Haus gewonnen");
+				JOptionPane.showMessageDialog(null, "Somit hat das Haus gewonnen");
 			}
 			else {
-				System.out.println("Unentschieden -> Der Pot wird geteilt");
+				JOptionPane.showMessageDialog(null, "Unentschieden -> Der Pot wird geteilt");
 			}
 		}
 		}
 
 	}
 
-	public void Dealer_GibKarten() {
-
-		for (int i = 1; i <= Dealer.Hand.size(); i = i + 1) {
+	public String Dealer_GibKarten() {
+		String test;
+		StringBuffer Karten = new StringBuffer ("");
+		for (int i = 1; i <= Dealer.Hand.size(); i++) {
 			Spielkarte a = Dealer.Hand.get(i - 1);
-			System.out.println(a.Kartenfarbe + " " + a.Kartenname);
+			
+			 Karten.append(a.Kartenfarbe + " " + a.Kartenname + ", ");
 		}
+		
+	test = Karten.toString();
+	return test;
+	
 	}
 
 	public int Dealer_GibWert() {
